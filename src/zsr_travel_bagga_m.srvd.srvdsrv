@@ -1,0 +1,6 @@
+@EndUserText.label: 'SERVICE DEFINATION FOR TRAVEL MANAGED'
+define service ZSR_TRAVEL_BAGGA_M {
+  expose ZC_TRAVEL_BAGGA_M;
+  expose ZC_BOOKING_BAGGA_M;
+  expose ZC_BOOKSUPPL_BAGGA_M;
+}

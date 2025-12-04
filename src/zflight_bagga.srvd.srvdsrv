@@ -1,0 +1,6 @@
+@EndUserText.label: 'SERVICE DEFINATION OF CONNECTION'
+define service ZFLIGHT_BAGGA {
+  expose ZI_CONNECTION_BAGGA;
+  expose ZI_FLIGHT_TECH_R1;
+  expose ZI_CARRIER_TECH_R1;
+}

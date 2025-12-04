@@ -1,0 +1,71 @@
+@Metadata.layer: #CUSTOMER
+@UI.headerInfo: {
+    typeName: 'BookingSuppl',
+    typeNamePlural: 'BookingSuppls',
+    title: {
+        type: #STANDARD,
+        label: 'BookingSuppl',
+        value: 'BookingId'
+    }
+}
+@Search.searchable: true
+
+annotate entity ZC_BOOKSUPPL_BAGGA_M with
+{
+  @UI.facet: [{
+       id: 'BookingSuppl',
+       purpose: #STANDARD,
+       position:10 ,
+       label: 'Booking Suppl',
+       type: #IDENTIFICATION_REFERENCE
+   }
+     ]
+  @UI:{ lineItem: [{ position: 10 }],
+        identification: [{ position: 10 }] }
+         @Search.defaultSearchElement: true
+  TravelId;
+  @UI.lineItem: [{ position: 20  }]
+  @UI.identification: [{ position:20  }]
+   @Search.defaultSearchElement: true
+  BookingId;
+  @UI.lineItem: [{ position: 30  }]
+  @UI.identification: [{ position:30  }]
+  BookingSupplementId;
+  @UI.lineItem: [{ position: 40  }]
+  @UI.identification: [{ position:40  }]
+      @Consumption.valueHelpDefinition: [{ entity: {
+  name: '/DMO/I_Supplement',
+  element: 'SupplementID'
+  },
+  additionalBinding: [{
+             localElement: 'SupplementId',
+             element: 'SupplementID'
+      },
+      
+      { localElement: 'Price',
+      element: 'Price' },
+      
+      { localElement: 'CurrencyCode',
+        element: 'CurrencyCode' }
+      ]
+   }]
+  SupplementId;
+  @UI.lineItem: [{ position: 50  }]
+  @UI.identification: [{ position:50  }]
+  Price;
+  @UI.lineItem: [{ position: 60  }]
+  @UI.identification: [{ position:60  }]
+    @Consumption.valueHelpDefinition: [{ entity: {
+  name: 'I_Currency',
+  element: 'Currency'
+  } }]
+  CurrencyCode;
+  @UI.hidden: true
+  LastChangedAt;
+  //////    /* Associations */
+  //////    _Booking;
+  //////    _Supplement;
+  //////    _SupplementText;
+  //////    _Travel;
+
+}
